@@ -47,3 +47,8 @@ L'API est ensuite accessible sur http://127.0.0.1:8000
 ## Documentation interactive (Swagger)
 
 Disponible automatiquement sur http://127.0.0.1:8000/docs
+
+
+# uvicorn main:app --reload
+# env\Scripts\activate.bat
+# http://127.0.0.1:8000/docs#/
