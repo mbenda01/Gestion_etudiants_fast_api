@@ -3,7 +3,7 @@ from typing import Optional
 
 
 class Etudiant(BaseModel):
-    """Schéma utilisé pour la création (POST) : pas d'id, il est généré par le serveur."""
+    """Schéma utilisé pour la création (POST) : pas d'id, il est généré par la base."""
     nom: str
     prenom: str
     age: int
@@ -21,5 +21,8 @@ class EtudiantUpdate(BaseModel):
 
 
 class EtudiantOut(Etudiant):
-    """Schéma retourné au client : Etudiant + l'id généré par le serveur."""
+    """Schéma retourné au client : Etudiant + l'id généré par la base."""
     id: int
+
+    class Config:
+        from_attributes = True
