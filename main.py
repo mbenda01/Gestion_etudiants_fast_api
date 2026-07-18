@@ -1,14 +1,10 @@
 from fastapi import FastAPI, HTTPException, Depends
 from sqlalchemy.orm import Session
+
 from schemas import Etudiant, EtudiantUpdate, EtudiantOut
-from database import engine, get_db, Base
+from database import get_db
 import models
 
-# Crée la table "etudiants" dans PostgreSQL,
-# à partir du modèle SQLAlchemy défini dans models.py.
-Base.metadata.create_all(bind=engine)
-
-# Création de l'application FastAPI
 app = FastAPI()
 
 
@@ -38,7 +34,7 @@ def addition(a: int, b: int):
     return {"resultat": a + b}
 
 
-# --- Sprint 4/5 : CRUD sur PostgreSQL (via SQLAlchemy) sur /etudiants ---
+# --- Sprint 4/5/6 : CRUD sur PostgreSQL (via SQLAlchemy), schéma géré par Alembic ---
 
 # Partie 3 — Ajouter un étudiant (Create)
 @app.post("/etudiants", response_model=EtudiantOut)
