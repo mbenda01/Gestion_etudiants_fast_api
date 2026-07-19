@@ -11,8 +11,8 @@ from alembic import context
 # Permet d'importer database.py et models.py depuis la racine du projet
 sys.path.append(os.getcwd())
 
-from database import Base  # noqa: E402
-import models  # noqa: E402,F401  (import nécessaire pour enregistrer les modèles auprès de Base)
+from app.database import Base  # noqa: E402
+import app.models  # noqa: E402,F401  (import nécessaire pour enregistrer les modèles auprès de Base)
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
