@@ -1,54 +1,28 @@
-# Gestion des Étudiants — API (Sprint 1)
+# Gestion des Étudiants — API
 
-API de découverte construite avec **FastAPI** dans le cadre du Sprint 1 (Découverte de FastAPI).
+API REST permettant de gérer des étudiants (création, consultation, modification, suppression), construite avec **FastAPI**, **Pydantic**, **SQLAlchemy** et **PostgreSQL**, avec des migrations gérées par **Alembic**.
 
-## Objectif
+## Objectifs du projet
 
-Première prise en main de FastAPI : création d'une application, de routes simples et dynamiques, et test via Swagger.
+Ce projet a été développé de façon progressive, sprint après sprint, avec pour objectifs :
 
-## Technologies
+- construire une API REST complète avec FastAPI (routes GET, POST, PUT, DELETE) ;
+- valider rigoureusement les données reçues avec Pydantic (formats, contraintes) ;
+- persister les données dans une vraie base de données relationnelle (PostgreSQL) via l'ORM SQLAlchemy ;
+- gérer l'évolution du schéma de la base de données de façon versionnée avec Alembic ;
+- organiser le code selon une architecture professionnelle en couches (routes / logique métier / modèles / schémas) ;
+- documenter et livrer une API prête à être utilisée par une autre équipe.
 
-- FastAPI
-- Uvicorn
+## Technologies utilisées
 
-## Installation
+| Technologie | Rôle |
+|---|---|
+| **FastAPI** | Framework web pour construire l'API et ses routes |
+| **Pydantic** | Validation et sérialisation des données échangées |
+| **SQLAlchemy** | ORM pour manipuler PostgreSQL sans écrire de SQL à la main |
+| **PostgreSQL** | Base de données relationnelle (exécutée dans Docker) |
+| **Alembic** | Gestion versionnée des migrations du schéma |
+| **Docker** | Conteneurisation de PostgreSQL (installé via WSL, sans Docker Desktop) |
+| **Uvicorn** | Serveur ASGI exécutant l'application |
 
-```bash
-# Créer l'environnement virtuel
-python -m venv env
-
-# Activer l'environnement
-# Windows :
-env\Scripts\activate
-# Linux / Mac :
-source env/bin/activate
-
-# Installer les dépendances
-pip install -r requirements.txt
-```
-
-## Lancement
-
-```bash
-uvicorn main:app --reload
-```
-
-L'API est ensuite accessible sur http://127.0.0.1:8000
-
-## Routes disponibles
-
-| Méthode | Route | Description | Exemple |
-|---------|-------|-------------|---------|
-| GET | `/` | Message de bienvenue | http://127.0.0.1:8000/ |
-| GET | `/bonjour` | Salutation simple | http://127.0.0.1:8000/bonjour |
-| GET | `/bonjour/{nom}` | Salutation personnalisée | http://127.0.0.1:8000/bonjour/Ali |
-| GET | `/addition/{a}/{b}` | Addition de deux entiers | http://127.0.0.1:8000/addition/10/20 |
-
-## Documentation interactive (Swagger)
-
-Disponible automatiquement sur http://127.0.0.1:8000/docs
-
-
-# uvicorn main:app --reload
-# env\Scripts\activate.bat
-# http://127.0.0.1:8000/docs#/
+## Structure du projet
